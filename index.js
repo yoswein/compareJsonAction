@@ -6,8 +6,8 @@ try {
   const firstFilePath = core.getInput("first-packageJson-path");
   const secondFilePath = core.getInput("second-packageJson-path");
 
-  let firstFileJson = fs.readFileSync(firstFilePath, "utf8");
-  let secondFileJson = fs.readFileSync(secondFilePath, "utf8");
+  let firstFileJson = JSON.parse(fs.readFileSync(firstFilePath, "utf8"));
+  let secondFileJson = JSON.parse(fs.readFileSync(secondFilePath, "utf8"));
 
   let dependenciesA = firstFileJson.dependencies;
   let dependenciesB = secondFileJson.dependencies;
