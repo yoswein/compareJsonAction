@@ -17,7 +17,7 @@ try {
   } else {
     core.info("pacakge.json dependencies objects are not equal");
     secondFileJson.dependencies = dependenciesA;
-    fs.writeFileSync(secondFilePath, secondFileJson);
+    fs.writeFileSync(secondFilePath, JSON.stringify(secondFileJson));
   }
 } catch (error) {
   core.setFailed(error.message);
