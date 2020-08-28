@@ -13,11 +13,9 @@ try {
   let dependenciesB = secondFileJson.dependencies;
 
   if (JSON.stringify(dependenciesA) === JSON.stringify(dependenciesB)) {
-    console.log(
-      `pacakge.json dependencies objects are equal: ${dependenciesB}`
-    );
+    core.info(`pacakge.json dependencies objects are equal: ${dependenciesB}`);
   } else {
-    console.log("pacakge.json dependencies objects are not equal");
+    core.info("pacakge.json dependencies objects are not equal");
     secondFileJson.dependencies = dependenciesA;
     fs.writeFileSync(secondFilePath, secondFileJson);
   }
