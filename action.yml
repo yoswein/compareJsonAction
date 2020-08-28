@@ -1,0 +1,12 @@
+name: "Compare package dependencies"
+description: "Compare and replace pakcage.json dependencies "
+inputs:
+  first-packageJson-path:
+    description: "The first package.json to compare"
+    required: true
+  second-packageJson-path:
+    description: "The second package.json to compare"
+    required: true
+runs:
+  using: "node12"
+  main: "index.js"
