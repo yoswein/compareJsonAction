@@ -7,6 +7,9 @@ inputs:
   second-packageJson-path:
     description: "The second package.json to compare"
     required: true
+outputs:
+    updated: 
+        description: 'Whether the package.json was updated'    
 runs:
   using: "node12"
   main: "index.js"

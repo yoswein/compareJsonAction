@@ -6,6 +6,7 @@ try {
   const firstFilePath = core.getInput("first-packageJson-path");
   const secondFilePath = core.getInput("second-packageJson-path");
 
+  let updated = false;
   let firstFileJson = JSON.parse(fs.readFileSync(firstFilePath, "utf8"));
   let secondFileJson = JSON.parse(fs.readFileSync(secondFilePath, "utf8"));
 
@@ -18,7 +19,10 @@ try {
     core.info("pacakge.json dependencies objects are not equal");
     secondFileJson.dependencies = dependenciesA;
     fs.writeFileSync(secondFilePath, JSON.stringify(secondFileJson));
+    updated = true;
   }
+
+  core.setOutput("updated", updated);
 } catch (error) {
   core.setFailed(error.message);
 }
